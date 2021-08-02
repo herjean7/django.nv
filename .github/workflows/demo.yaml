@@ -31,12 +31,12 @@ jobs:
   artifact:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Create a file'
-      - run: echo "Testing 123" > my_file.txt
-      
-      - name: 'Upload Artifact'
-        uses: actions/upload-artifact@v2
+      - run: echo hi > world.txt
+      - uses: actions/upload-artifact@v2
         with:
-          name: my-artifact
-          path: my_file.txt
-          retention-days: 5
+          path: world.txt
+
+      - run: echo howdy > extra-file.txt
+      - uses: actions/upload-artifact@v2
+        with:
+          path: extra-file.txt
